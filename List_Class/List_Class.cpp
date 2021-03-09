@@ -9,6 +9,7 @@ class Queue
 public:
     Queue();
 	~Queue();
+	void push_back(T data);
 
 private:
 
@@ -25,8 +26,10 @@ private:
 				this->pNext = pNext;
 			}
 	};
-
-
+	
+	Node<T>* head;
+	Node<T>* tail;
+	int size;
 };
 
 
@@ -61,8 +64,17 @@ int main()
 template<typename T>
 Queue<T>::Queue()
 {
+	size = 0;
+	head = nullptr;
+	tail = nullptr;
 }
 template<typename T>
 Queue<T>::~Queue()
 {
+}
+
+template<typename T>
+void Queue<T>::push_back(T data)
+{
+
 }
