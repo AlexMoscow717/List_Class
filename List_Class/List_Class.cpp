@@ -76,5 +76,8 @@ Queue<T>::~Queue()
 template<typename T>
 void Queue<T>::push_back(T data)
 {
-
+	if (head == nullptr)
+	{
+		head = new Node<T>(data);
+	}
 }
