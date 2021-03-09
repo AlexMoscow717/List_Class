@@ -3,8 +3,45 @@
 
 #include <iostream>
 
+template<typename T>
+class Queue
+{
+public:
+    Queue();
+	~Queue();
+
+private:
+
+	template<typename T>
+	class Node
+	{
+		public:
+
+			Node* pNext;
+			T data;
+			Node(T data = T(), Node* pNext = nullptr)
+			{
+				this->data = data;
+				this->pNext = pNext;
+			}
+	};
+
+
+};
+
+
 int main()
 {
+
+
+    
+
+
+
+
+
+
+
     std::cout << "Hello World!\n";
     std::cout << "test git 1 \n";
 }
@@ -19,3 +56,13 @@ int main()
 //   4. В окне "Список ошибок" можно просматривать ошибки.
 //   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
 //   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+
+
+template<typename T>
+Queue<T>::Queue()
+{
+}
+template<typename T>
+Queue<T>::~Queue()
+{
+}
