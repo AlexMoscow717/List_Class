@@ -11,6 +11,7 @@ public:
 	~Queue();
 	void push_back(T data);
 	int GetSize() { return size; }
+	T& operator[](const int index);
 
 private:
 
