@@ -46,12 +46,15 @@ int main()
 	std::cout << Q.GetSize() << "\n";
 	Q.push_back(10);
 	std::cout << Q.GetSize() << "\n";
-	Q.push_back(223);
-	std::cout << Q.GetSize()<<"\n";
+	Q.push_back(56);
+	std::cout << Q.GetSize()<<"\n\n";
 
+	
 
-
-
+	for (size_t i = 0; i < Q.GetSize(); i++)
+	{
+		std::cout << Q[i] << "\n";
+	}
 
 
     
@@ -101,4 +104,21 @@ void Queue<T>::push_back(T data)
 	}
 
 	size++;
+}
+
+template<typename T>
+T& Queue<T>::operator[](const int index)
+{
+	int counter = 0;
+	Node<T>* current = this->head;
+
+	while (current != nullptr)
+	{
+		if (counter == index)
+		{
+			return current->data;
+		}
+		current = current->pNext;
+		counter++;
+	}
 }
