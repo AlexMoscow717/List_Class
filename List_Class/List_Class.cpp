@@ -42,11 +42,11 @@ int main()
 
 
 	std::cout << Q.GetSize() << "\n";
-	Q.push_back(5);
+	Q.push_back(11);
 	std::cout << Q.GetSize() << "\n";
-	Q.push_back(10);
+	Q.push_back(100);
 	std::cout << Q.GetSize() << "\n";
-	Q.push_back(56);
+	Q.push_back(569);
 	std::cout << Q.GetSize()<<"\n\n";
 
 	
@@ -93,14 +93,14 @@ void Queue<T>::push_back(T data)
 
 	if (tail != nullptr)
 	{
-		tail->pNext = NewNode;
+		this->tail->pNext = NewNode;
 	}
 	
 	tail = NewNode;
 
 	if (head == nullptr)
 	{
-		head = NewNode;
+		this->head = NewNode;
 	}
 
 	size++;
