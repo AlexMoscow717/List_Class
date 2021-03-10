@@ -40,14 +40,25 @@ int main()
 
 	Queue<int> Q;
 
+	int numCount;
+	std::cin >> numCount;
+	std::cout << "\n";
+	for (size_t i = 0; i < numCount; i++)
+	{
+		static int temp = 0;
+		temp = rand() % 10;
+		std::cout << temp << "\n";
+		Q.push_back(temp);
+	}
 
-	std::cout << Q.GetSize() << "\n";
+	std::cout << "\n";
+	/*std::cout << Q.GetSize() << "\n";
 	Q.push_back(11);
 	std::cout << Q.GetSize() << "\n";
 	Q.push_back(100);
 	std::cout << Q.GetSize() << "\n";
 	Q.push_back(569);
-	std::cout << Q.GetSize()<<"\n\n";
+	std::cout << Q.GetSize()<<"\n\n";*/
 
 	
 
