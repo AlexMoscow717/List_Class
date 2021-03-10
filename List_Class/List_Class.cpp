@@ -10,6 +10,7 @@ public:
     Queue();
 	~Queue();
 	void push_back(T data);
+	int GetSize() { return size; }
 
 private:
 
@@ -36,17 +37,24 @@ private:
 int main()
 {
 
+	Queue<int> Q;
+
+
+	std::cout << Q.GetSize() << "\n";
+	Q.push_back(5);
+	std::cout << Q.GetSize() << "\n";
+	Q.push_back(10);
+	std::cout << Q.GetSize() << "\n";
+	Q.push_back(223);
+	std::cout << Q.GetSize()<<"\n";
+
+
+
+
+
 
     
-
-
-
-
-
-
-
-    std::cout << "Hello World!\n";
-    std::cout << "test git 1 \n";
+   // std::cout << "test git 1 \n";
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
@@ -76,8 +84,20 @@ Queue<T>::~Queue()
 template<typename T>
 void Queue<T>::push_back(T data)
 {
+
+	Node<T>* NewNode = new Node<T>(data);
+
+	if (tail != nullptr)
+	{
+		tail->pNext = NewNode;
+	}
+	
+	tail = NewNode;
+
 	if (head == nullptr)
 	{
-		head = new Node<T>(data);
+		head = NewNode;
 	}
+
+	size++;
 }
