@@ -12,6 +12,7 @@ public:
 	void push_back(T data);
 	int GetSize() { return size; }
 	T& operator[](const int index);
+	void pop_front();
 
 private:
 
@@ -37,6 +38,7 @@ private:
 
 int main()
 {
+	setlocale(LC_ALL, "ru");
 
 	Queue<int> Q;
 
@@ -46,12 +48,23 @@ int main()
 	for (size_t i = 0; i < numCount; i++)
 	{
 		static int temp = 0;
-		temp = rand() % 10;
+		temp = rand() % 50;
 		std::cout << temp << "\n";
 		Q.push_back(temp);
 	}
 
 	std::cout << "\n";
+	while (Q.GetSize())
+	{
+		std::cout << "Элементов в очереди " << Q.GetSize() << " "<< "выполняю pop_front "<< "\n";
+		Q.pop_front();
+
+		for (size_t i = 0; i < Q.GetSize(); i++)
+		{
+			std::cout << Q[i] << "\n";
+		}
+	}
+	
 	/*std::cout << Q.GetSize() << "\n";
 	Q.push_back(11);
 	std::cout << Q.GetSize() << "\n";
@@ -62,10 +75,7 @@ int main()
 
 	
 
-	for (size_t i = 0; i < Q.GetSize(); i++)
-	{
-		std::cout << Q[i] << "\n";
-	}
+	
 
 
     
@@ -132,4 +142,23 @@ T& Queue<T>::operator[](const int index)
 		current = current->pNext;
 		counter++;
 	}
+}
+
+template<typename T>
+void Queue<T>::pop_front()
+{
+	if (this->head == nullptr)
+	{
+		return;
+	}
+	Node<T>* temp = this->head;
+	//Node<T> data_temp = this->head->data;
+	this->head = this->head->pNext;
+	if (this->head == nullptr)
+	{
+		this->tail = nullptr;
+	}
+	delete temp;
+	temp = nullptr;
+	size--;
 }
